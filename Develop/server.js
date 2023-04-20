@@ -19,6 +19,11 @@ app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
+// Wildcard route to direct users back to the landing page
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, 'public/index.html'))
+);
+
 // Create a POST route that saves a new note in response to a Save icon click
 
 
