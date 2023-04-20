@@ -24,18 +24,6 @@ app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, 'public/index.html'))
 );
 
-// Create a POST route that saves a new note in response to a Save icon click
-
-
-// Create a GET route that retrieves a single note by its ID and displays it in the right-hand column
-
-
-// Create a DELETE route that removes a note by its ID
-
-
-// Create a PUT route that updates a note by its ID
-
-
 // Start the server and listen for incoming requests
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT}`)
