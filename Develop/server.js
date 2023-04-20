@@ -11,11 +11,13 @@ app.use(express.static('public'));
 
 // Create a GET route for the landing page that serves a file with a link to the notes page
 app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/notes.html'))
+  res.sendFile(path.join(__dirname, '/public/index.html'))
 );
 
-// Create a GET route for the notes page that serves a file with a list of existing notes in the left-hand column and empty fields for new note title and text in the right-hand column
-
+// Create a GET route for the notes page that serves a file with a list to the 
+app.get('/notes', (req, res) =>
+  res.sendFile(path.join(__dirname, '/public/notes.html'))
+);
 
 // Create a POST route that saves a new note in response to a Save icon click
 
@@ -30,3 +32,6 @@ app.get('/', (req, res) =>
 
 
 // Start the server and listen for incoming requests
+app.listen(PORT, () =>
+  console.log(`App listening at http://localhost:${PORT}`)
+);
