@@ -1,19 +1,18 @@
 // Define the required dependencies and initialize Express
 const express = require('express');
+const fs = require('fs');
+const path = require('path');
 
-const PORT = process.env.PORT || 3005;
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Middleware for parsing JSON and urlencoded form data
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use('/api', api);
-
-// Middleware to serve static files, such as HTML, CSS, and client-side JS files
+// Middleware to serve static files
 app.use(express.static('public'));
 
 // Create a GET route for the landing page that serves a file with a link to the notes page
-
+app.get('/', (req, res) =>
+  res.sendFile(path.join(__dirname, '/public/notes.html'))
+);
 
 // Create a GET route for the notes page that serves a file with a list of existing notes in the left-hand column and empty fields for new note title and text in the right-hand column
 
