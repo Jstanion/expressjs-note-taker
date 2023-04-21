@@ -2,24 +2,21 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const notes = require('./routes/index')
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // Middleware to serve static files
 app.use(express.static('public'));
-
-// Create a GET route for the landing page that serves a file with a link to the notes page
-app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/index.html'))
-);
+app.use('/api', notes)
 
 // Create a GET route for the notes page that serves a file with a list to the 
 app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
-// Wildcard route to direct users back to the landing page
+// Wildcard route to direct users to the landing page
 app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, 'public/index.html'))
 );
