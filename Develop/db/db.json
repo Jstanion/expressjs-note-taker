@@ -2,5 +2,9 @@
     {
         "title":"Test Title",
         "text":"Test text"
+    },
+    {
+        "title":"New Note",
+        "text":"This was not added through local host."
     }
 ]

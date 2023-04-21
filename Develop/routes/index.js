@@ -9,7 +9,9 @@ const {
 
 // Create a GET route that retrieves all saved notes as JSON
 notes.get('/', (req, res) => {
-    readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
+    readFromFile('./db/db.json')
+    .then((data) => res.json(JSON.parse(data)));
+    
   });
   
 
@@ -24,7 +26,5 @@ notes.get('/', (req, res) => {
 
 // Create a PUT route that updates a note by its ID
 
-
-// Start the server and listen for incoming requests
 
 module.exports = notes
