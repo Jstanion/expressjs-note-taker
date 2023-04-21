@@ -1,10 +1,14 @@
 [
     {
-        "title":"Test Title",
-        "text":"Test text"
+        "title": "Test Title",
+        "text": "Test text"
     },
     {
-        "title":"New Note",
-        "text":"This was not added through local host."
+        "title": "New Note",
+        "text": "This was not added through local host."
+    },
+    {
+        "title": "New Note",
+        "text": "Added through localhost"
     }
 ]

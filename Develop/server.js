@@ -10,7 +10,9 @@ const PORT = process.env.PORT || 3001;
 // Middleware to serve static files
 app.use(express.static('public'));
 
-// Middleware to to serve db.json data to HTML page
+// Middleware for parsing JSON and urlencoded form data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use('/api/notes', notes);
 
 // Create a GET route for the notes page that serves a file with a list to the 
