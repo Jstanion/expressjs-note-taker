@@ -1,19 +1,17 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text"
+        "title": "Grocery Shopping",
+        "text": "We need:\nMilk\nEggs\nSugar\nFlour\nFrosting",
+        "id": "7286deff-384a-4ea3-8033-08c6d569166d"
     },
     {
-        "title": "New Note",
-        "text": "This was not added through local host."
+        "title": "Mail Invitations",
+        "text": "All cards are filled out and postage added. Just drop them off at the post office!",
+        "id": "1db004b9-425e-4cd0-9e22-3a8be3e70e8b"
     },
     {
-        "title": "New Note",
-        "text": "Added through localhost"
-    },
-    {
-        "title": "New Note with ID",
-        "text": "Checking if ID is generated",
-        "note_id": "bcc792d7-4e0a-4ea2-9d91-b433d9d03a5c"
+        "title": "Take Falcor to Vet",
+        "text": "Firehouse Animal Clinic\nApril 29th, 2023\n4:00pm",
+        "id": "c3ae39a8-8f5e-4c19-949f-a1e79d305e9a"
     }
 ]
