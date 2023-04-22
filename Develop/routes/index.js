@@ -3,12 +3,11 @@ const notes = require('express').Router();
 const {
     readFromFile,
     readAndAppend,
-    writeToFile,
   } = require('../helpers/fsUtils');
   const { v4: uuidv4 } = require('uuid');
 
 
-// Create a GET route that retrieves all saved notes as JSON
+// Create a GET route that retrieves all saved notes
 notes.get('/', (req, res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
   });
@@ -20,20 +19,32 @@ notes.post('/', (req, res) => {
   const newNote = {
     title,
     text,
-    note_id: uuidv4()
+    id: uuidv4()
   };
 
   readAndAppend(newNote, './db/db.json');
   res.json('Success: New note was added.');
 })
 
-// Create a GET route that retrieves a single note by its ID and displays it in the right-hand column
-
+// Create a GET route that retrieves a single note by its ID
+notes.get('/:note_id', (req, res) => {
+  const noteId = req.params.id;
+  readFromFile('./db/db.json')
+    .then((data) => JSON.parse(data))
+    .then((json) => {
+      const response = json.find((note) => note.id === noteId);
+      res.send(response);
+      console.log('Successfully retrieved note', response)
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send('Error retrieving note');
+    });
+})
 
 // Create a DELETE route that removes a note by its ID
 
 
 // Create a PUT route that updates a note by its ID
-
 
 module.exports = notes

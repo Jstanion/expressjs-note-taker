@@ -2,7 +2,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-const notes = require('./routes/index')
+const api = require('./routes/index')
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -13,9 +13,11 @@ app.use(express.static('public'));
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/api/notes', notes);
 
-// Create a GET route for the notes page that serves a file with a list to the 
+// Middleware to use imported route file on desired endpoint.
+app.use('/api/notes', api);
+
+// Create a GET route for the notes page that serves a file with a list to the notes.html page
 app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
