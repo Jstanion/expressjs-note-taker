@@ -10,5 +10,10 @@
     {
         "title": "New Note",
         "text": "Added through localhost"
+    },
+    {
+        "title": "New Note with ID",
+        "text": "Checking if ID is generated",
+        "note_id": "bcc792d7-4e0a-4ea2-9d91-b433d9d03a5c"
     }
 ]

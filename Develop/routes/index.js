@@ -5,6 +5,7 @@ const {
     readAndAppend,
     writeToFile,
   } = require('../helpers/fsUtils');
+  const { v4: uuidv4 } = require('uuid');
 
 
 // Create a GET route that retrieves all saved notes as JSON
@@ -19,7 +20,7 @@ notes.post('/', (req, res) => {
   const newNote = {
     title,
     text,
-    note_id: uuid()
+    note_id: uuidv4()
   };
 
   readAndAppend(newNote, './db/db.json');
