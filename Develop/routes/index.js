@@ -3,6 +3,7 @@ const notes = require('express').Router();
 const {
     readFromFile,
     readAndAppend,
+    readAndRemove
   } = require('../helpers/fsUtils');
   const { v4: uuidv4 } = require('uuid');
 
@@ -27,7 +28,7 @@ notes.post('/', (req, res) => {
 })
 
 // Create a GET route that retrieves a single note by its ID
-notes.get('/:note_id', (req, res) => {
+notes.get('/:id', (req, res) => {
   const noteId = req.params.id;
   readFromFile('./db/db.json')
     .then((data) => JSON.parse(data))
@@ -43,8 +44,15 @@ notes.get('/:note_id', (req, res) => {
 })
 
 // Create a DELETE route that removes a note by its ID
-
-
-// Create a PUT route that updates a note by its ID
+notes.delete('/:id', (req, res) => {
+  const noteId = req.params.id;
+  readFromFile('./db/db.json')
+    .then((data) => JSON.parse(data))
+    .then((json) => {
+      const response = json.filter((note) => note.id !== noteId);
+      res.send(response);
+      console.log('Successfully retrieved note', response)
+    })
+})
 
 module.exports = notes
