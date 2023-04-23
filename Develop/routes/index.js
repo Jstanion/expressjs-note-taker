@@ -3,7 +3,7 @@ const notes = require('express').Router();
 const {
     readFromFile,
     readAndAppend,
-    readAndRemove
+    writeToFile,
   } = require('../helpers/fsUtils');
   const { v4: uuidv4 } = require('uuid');
 
@@ -50,9 +50,14 @@ notes.delete('/:id', (req, res) => {
     .then((data) => JSON.parse(data))
     .then((json) => {
       const response = json.filter((note) => note.id !== noteId);
-      res.send(response);
-      console.log('Successfully retrieved note', response)
+      writeToFile('./db/db.json', response);
+      res.send()
+      console.log('Successfully removed note', response)
     })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send('Error retrieving note');
+    });
 })
 
 module.exports = notes
