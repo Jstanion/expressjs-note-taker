@@ -1,5 +1,3 @@
-const express = require('express');
-
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -23,18 +21,6 @@ const show = (elem) => {
 const hide = (elem) => {
   elem.style.display = 'none';
 };
-
-// Create a POST route that saves a new note in response to a Save icon click
-
-
-// Create a GET route that retrieves a single note by its ID and displays it in the right-hand column
-
-
-// Create a DELETE route that removes a note by its ID
-
-
-// Create a PUT route that updates a note by its ID
-
 
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
