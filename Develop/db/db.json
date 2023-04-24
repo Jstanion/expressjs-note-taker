@@ -1,1 +1,17 @@
-[]
+[
+    {
+        "title": "Take Falcor to Vet",
+        "text": "Firehouse Animal Clinic\nApril 29th, 2023\n4:00 pm",
+        "id": "3b849d38-2baf-4851-a7eb-20d597bb7fad"
+    },
+    {
+        "title": "Grocery List",
+        "text": "Eggs\nMilk\nBread\nBananas\nBroccoli\nChicken",
+        "id": "7bc4da2b-6e05-47d8-9a38-9d2abde5e964"
+    },
+    {
+        "title": "House Meeting",
+        "text": "Topics to discuss:\nCleaning chart\nDinner Schedule\nGame Night on Saturday",
+        "id": "89483756-4410-40d3-8124-0bdcd30e902b"
+    }
+]
