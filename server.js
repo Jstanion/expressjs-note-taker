@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 // Middleware to use imported route file on desired endpoint.
 app.use('/api/notes', api);
 
-// Create a GET route for the notes page that serves a file with a list to the notes.html page
+// GET route for the notes page that serves a file with a list to the notes.html page
 app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
